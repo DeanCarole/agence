@@ -2,18 +2,41 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ asset ('css/normalize.css') }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset ('css/style.css') }}">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+
+    {%  block styleCss %}
+        <style>
+        body{
+            background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.5)),
+            url("{{ asset ('image/yourte.jpg') }}");
+        }
+        </style>
+    {% endblock %}
+
+    {% block header %}
+        <div class="container">
+        <nav>
+            <ul>
+                <li><a href="{{ path('main_home') }}">Home</a></li>
+                <li><a href=" {{  path ('main_cgu') }}">CGU</a></li>
+                <li><a href=" {{  path ('main_mentions') }}">Mentions légales</a></li>
+                <li><a href=" {{  path ('main_presentation') }}">Présentation</a></li>
+            </ul>
+        </nav>
+        </div>
+    {% endblock %}
+
+    {% block body %}{% endblock %}
+
+    {% block footer %}{% endblock %}
+
     </body>
 </html>
